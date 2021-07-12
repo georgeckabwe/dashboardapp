@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run penguins-app.py
+web: node dist/server.js
