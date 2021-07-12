@@ -1,7 +1,6 @@
 
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 # import base64
 from pandas._config.config import options
@@ -139,16 +138,3 @@ st.write(df_filtered.describe())
 ######################################
 # Heatmap
 ######################################
-st.set_option('deprecation.showPyplotGlobalUse', False)
-if st.button('Intercorrelation Heatmap'):
-    st.header('Intercorrelation Matrix Heatmap')
-    df_filtered.to_csv('output.csv',index=False)
-    df = pd.read_csv('output.csv')
-
-    corr = df.corr()
-    mask = np.zeros_like(corr)
-    mask[np.triu_indices_from(mask)] = True
-    with sns.axes_style("white"):
-        f, ax = plt.subplots(figsize=(10, 2))
-        ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
-    st.pyplot()
